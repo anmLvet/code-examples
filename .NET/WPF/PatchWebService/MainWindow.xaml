@@ -1,0 +1,36 @@
+﻿<Window x:Class="PatchClientWebservices.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Pr.folder" Grid.Row="0" Grid.Column="0"/>
+        <TextBox Name="txProjectFolder" Grid.Row="0" Grid.Column="1" Text="{Binding Path=FolderName}"/>
+        <Button Grid.Row="0" Grid.Column="2" Content="..." Name="btnFindFolder" Click="btnFindFolder_Click"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" Name="cbServices" ItemsSource="{Binding Path=WebServices}" SelectionChanged="cbServices_SelectionChanged"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Common"/>
+        <TextBox Name="txCommonProjectFolder" Grid.Row="2" Grid.Column="1" Text="{Binding Path=CommonFolderName}"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" Name="cbCommonEntities" ItemsSource="{Binding Path=CommonEntityFiles}"/>
+        <Button Grid.Row="2" Grid.Column="2" Content="..." Name="btnCommonEntities" Click="btnCommonEntities_Click"/>
+        <ComboBox Grid.Row="4" Grid.Column="1" Name="cbEntities" ItemsSource="{Binding Path=EntityFiles}"/>
+        <Button Grid.Row="4" Grid.Column="2" Name="btnMove" Content="Move" Click="btnMove_Click"/>
+        <DataGrid Name="gridClasses" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" ItemsSource="{Binding Path=Classes}"/>
+        
+       
+        <Button Grid.Row="4" Grid.Column="3" Content="Diff" Name="btnDiff" Click="btnDiff_Click"/>
+        <Button Content="Norm" Name="btnNorm" Grid.Column="3" Grid.Row="1" Click="btnNorm_Click" />
+    </Grid>
+</Window>

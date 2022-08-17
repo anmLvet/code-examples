@@ -1,0 +1,34 @@
+﻿<Window x:Class="PatchClientWebservices.DiffWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DiffWindow" Height="370" Width="719" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="txServiceFolder" Grid.Row="0" Grid.Column="0" Text="{Binding Path=ServiceFolder}"/>
+        <TextBox Name="txWCFFolder" Grid.Row="1" Grid.Column="0" Text="{Binding Path=WCFFolder}"/>
+        <Button Name="btnSelectService" Grid.Row="0" Grid.Column="1" Content="..." Click="btnSelectService_Click"/>
+        <Button Name="btnSelectWCF" Grid.Row="1" Grid.Column="1" Content="..." Click="btnSelectWCF_Click"/>
+        <Button Name="runDiff" Grid.Row="1" Grid.Column="2" Content="diff" Click="runDiff_Click"/>
+        <TabControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+            <TabItem Header="Diff">
+                <Grid>
+                    <TextBox Name="tbDiff"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Transient">
+                <Grid>
+                    <TextBox Name="tbTransient"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
